@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Zakaria Dakir">
+    <meta name="description" content="Organize your tasks efficiently with Todo App. Create, manage, and mark tasks as completed using our user-friendly interface. Perfect for staying productive.">
+    <meta name="keywords" content="todo app, task management, productivity tool, task tracker, task organizer, manage tasks, completed tasks, simple todo app">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./scripts.js" defer></script>
+    <title>Todo App - Simplify Your Task Management</title>
+    <script>
+      tailwind.config = {
+        content: ["./*.html", "./scripts.js"],
+        theme: {
+          extend: {
+            fontFamily: {
+              inter: ["Inter", "sans-serif"],
+            },
+            colors: {
+              "c-purple": "#8284fa",
+              "c-purple-dark": "#5e60ce",
+              "c-blue": "#4ea8de",
+              "c-blue-dark": "#1e6f9f",
+              "c-gray-700": "#0d0d0d",
+              "c-gray-600": "#1a1a1a",
+              "c-gray-500": "#262626",
+              "c-gray-400": "#333333",
+              "c-gray-300": "#808080",
+              "c-gray-200": "#d9d9d9",
+              "c-gray-100": "#f2f2f2",
+              "c-danger": "#e25858",
+            },
+          },
+        },
+        plugins: [],
+      };
+    </script>
+  </head>
+  <body class="font-inter bg-c-gray-600">
+    <header
+      class="min-h-[150px] bg-c-gray-700 flex items-center justify-center relative"
+    >
+      <h1 class="flex items-center gap-3">
+        <img
+          class="w-[21.99px] h-[36.01px]"
+          src="./images/logo.png"
+          alt="Logo"
+        />
+        <span class="uppercase text-[40px] font-black text-c-blue"
+          >to<span class="uppercase text-[40px] font-black text-c-purple-dark"
+            >do</span
+          ></span
+        >
+      </h1>
+      <form
+        id="add-new-task"
+        class="absolute max-w-[736px] w-full bottom-[-87px] min-[399px]:bottom-[-27px] left-1/2 -translate-x-1/2 flex items-center flex-wrap gap-2 px-4"
+      >
+        <input
+          type="text"
+          placeholder="Add a new task"
+          id="new-task-name"
+          class="grow p-4 bg-c-gray-500 border border-c-gray-700 rounded-lg text-c-gray-100 outline-none placeholder:text-c-gray-300 focus:border-c-purple-dark"
+        />
+        <button
+          type="submit"
+          aria-label="Add new task"
+          class="grow min-[399px]:grow-0 text-sm font-bold flex items-center justify-center gap-2 p-4 rounded-lg text-c-gray-100 bg-c-blue-dark border border-c-blue-dark cursor-pointer transition-all duration-150 ease-in hover:bg-c-blue hover:border-c-blue"
+        >
+          Create
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M7.98373 1.45158C9.27565 1.45158 10.5386 1.83468 11.6128 2.55244C12.687 3.27019 13.5242 4.29037 14.0186 5.48395C14.513 6.67754 14.6424 7.99092 14.3903 9.25802C14.1383 10.5251 13.5161 11.689 12.6026 12.6026C11.6891 13.5161 10.5252 14.1382 9.25807 14.3903C7.99097 14.6423 6.67759 14.5129 5.484 14.0185C4.29042 13.5241 3.27025 12.6869 2.55249 11.6127C1.83473 10.5385 1.45163 9.2756 1.45163 7.98368C1.45832 6.25332 2.14867 4.59574 3.37223 3.37218C4.59579 2.14862 6.25337 1.45827 7.98373 1.45158ZM7.98373 5.77648e-06C6.40611 0.00645971 4.86578 0.480174 3.55717 1.36134C2.24857 2.24252 1.23037 3.49164 0.631106 4.95102C0.031846 6.4104 -0.121605 8.01461 0.190125 9.56114C0.501855 11.1077 1.26479 12.5272 2.38262 13.6404C3.50044 14.7537 4.92304 15.5108 6.47082 15.8162C8.01861 16.1217 9.62218 15.9617 11.0791 15.3564C12.536 14.7512 13.781 13.7279 14.6568 12.4158C15.5326 11.1036 16 9.5613 16.0001 7.98368C16.0001 6.93249 15.7925 5.89165 15.3892 4.92089C14.986 3.95014 14.395 3.06857 13.6502 2.32679C12.9053 1.58501 12.0214 0.997618 11.049 0.598327C10.0766 0.199035 9.0349 -0.00429452 7.98373 5.77648e-06Z"
+              fill="#F2F2F2"
+            />
+            <path
+              d="M11.707 7.38127H8.4954V4.16966H7.41397V7.38127H4.19873V8.4627H7.41397V11.6743H8.4954V8.4627H11.707V7.38127Z"
+              fill="#F2F2F2"
+            />
+          </svg>
+        </button>
+      </form>
+    </header>
+    <main>
+      <div class="max-w-[736px] px-4 mt-[121px] min-[399px]:mt-[91px] mx-auto">
+        <div class="flex items-center justify-between">
+          <h2 class="flex gap-2 text-c-blue text-sm">
+            Created Tasks
+            <span
+              id="tasks-count"
+              class="py-0.5 px-2 rounded-full text-c-gray-200 text-xs font-bold bg-c-gray-400"
+            ></span>
+          </h2>
+          <h3 class="flex gap-2 text-c-purple text-sm">
+            Completed
+            <span
+              id="completed-tasks-count"
+              class="py-0.5 px-2 rounded-full text-c-gray-200 text-xs font-bold bg-c-gray-400"
+            ></span>
+          </h3>
+        </div>
+        <ul
+          id="tasks-list"
+          class="flex flex-col gap-3 mt-5 max-h-[calc(100vh-320px)] min-[399px]:max-h-[calc(100vh-300px)] overflow-auto"
+        ></ul>
+      </div>
+    </main>
+  </body>
+</html>
