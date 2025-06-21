@@ -3,50 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Zakaria Dakir">
-    <meta name="description" content="Organize your tasks efficiently with Todo App. Create, manage, and mark tasks as completed using our user-friendly interface. Perfect for staying productive.">
-    <meta name="keywords" content="todo app, task management, productivity tool, task tracker, task organizer, manage tasks, completed tasks, simple todo app">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./scripts.js" defer></script>
-    <title>Todo App - Simplify Your Task Management</title>
-    <script>
-      tailwind.config = {
-        content: ["./*.html", "./scripts.js"],
-        theme: {
-          extend: {
-            fontFamily: {
-              inter: ["Inter", "sans-serif"],
-            },
-            colors: {
-              "c-purple": "#8284fa",
-              "c-purple-dark": "#5e60ce",
-              "c-blue": "#4ea8de",
-              "c-blue-dark": "#1e6f9f",
-              "c-gray-700": "#0d0d0d",
-              "c-gray-600": "#1a1a1a",
-              "c-gray-500": "#262626",
-              "c-gray-400": "#333333",
-              "c-gray-300": "#808080",
-              "c-gray-200": "#d9d9d9",
-              "c-gray-100": "#f2f2f2",
-              "c-danger": "#e25858",
-            },
-          },
-        },
-        plugins: [],
-      };
-    </script>
+    <link rel="stylesheet" href="./styles/output.css" />
+    <script type="module" src="./scripts/script.js"></script>
+    <title>ToDo List</title>
   </head>
-  <body class="font-inter bg-c-gray-600">
+  <body class="bg-gray-600 font-inter">
     <header
-      class="min-h-[150px] bg-c-gray-700 flex items-center justify-center relative"
+      class="min-h-[150px] bg-gray-700 flex items-center justify-center relative"
     >
       <h1 class="flex items-center gap-3">
         <img
@@ -54,27 +23,23 @@
           src="./images/logo.png"
           alt="Logo"
         />
-        <span class="uppercase text-[40px] font-black text-c-blue"
-          >to<span class="uppercase text-[40px] font-black text-c-purple-dark"
+        <span class="uppercase text-[40px] font-black text-blue"
+          >to<span class="uppercase text-[40px] font-black text-purple-dark"
             >do</span
           ></span
         >
       </h1>
       <form
-        id="add-new-task"
+        id="taskAddForm"
         class="absolute max-w-[736px] w-full bottom-[-87px] min-[399px]:bottom-[-27px] left-1/2 -translate-x-1/2 flex items-center flex-wrap gap-2 px-4"
       >
         <input
           type="text"
           placeholder="Add a new task"
-          id="new-task-name"
-          class="grow p-4 bg-c-gray-500 border border-c-gray-700 rounded-lg text-c-gray-100 outline-none placeholder:text-c-gray-300 focus:border-c-purple-dark"
+          id="taskNameInput"
+          class="task-name-input"
         />
-        <button
-          type="submit"
-          aria-label="Add new task"
-          class="grow min-[399px]:grow-0 text-sm font-bold flex items-center justify-center gap-2 p-4 rounded-lg text-c-gray-100 bg-c-blue-dark border border-c-blue-dark cursor-pointer transition-all duration-150 ease-in hover:bg-c-blue hover:border-c-blue"
-        >
+        <button type="submit" aria-label="Add new task" class="task-add-btn">
           Create
           <svg
             width="16"
@@ -95,29 +60,24 @@
         </button>
       </form>
     </header>
-    <main>
-      <div class="max-w-[736px] px-4 mt-[121px] min-[399px]:mt-[91px] mx-auto">
-        <div class="flex items-center justify-between">
-          <h2 class="flex gap-2 text-c-blue text-sm">
-            Created Tasks
-            <span
-              id="tasks-count"
-              class="py-0.5 px-2 rounded-full text-c-gray-200 text-xs font-bold bg-c-gray-400"
-            ></span>
-          </h2>
-          <h3 class="flex gap-2 text-c-purple text-sm">
-            Completed
-            <span
-              id="completed-tasks-count"
-              class="py-0.5 px-2 rounded-full text-c-gray-200 text-xs font-bold bg-c-gray-400"
-            ></span>
-          </h3>
-        </div>
-        <ul
-          id="tasks-list"
-          class="flex flex-col gap-3 mt-5 max-h-[calc(100vh-320px)] min-[399px]:max-h-[calc(100vh-300px)] overflow-auto"
-        ></ul>
+    <main class="max-w-[736px] px-4 mx-auto mt-[121px] min-[399px]:mt-[91px]">
+      <div class="flex items-center justify-between">
+        <h2 class="flex gap-2 text-sm text-blue">
+          Created Tasks
+          <span
+            id="taskCount"
+            class="text-xs font-bold text-gray-200 bg-gray-400 py-0.5 px-2 rounded-full"
+          ></span>
+        </h2>
+        <h3 class="flex gap-2 text-sm text-purple">
+          Completed
+          <span
+            id="completedCount"
+            class="text-xs font-bold text-gray-200 bg-gray-400 py-0.5 px-2 rounded-full"
+          ></span>
+        </h3>
       </div>
+      <ul id="taskList" class="flex flex-col gap-3 mt-5 max-h-[calc(100vh-320px)] min-[399px]:max-h-[calc(100vh-300px)] overflow-auto"></ul>
     </main>
   </body>
 </html>

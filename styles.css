@@ -1,7 +1,0 @@
-#tasks-list {
-  scrollbar-width: none;
-}
-#tasks-list::-webkit-scrollbar {
-  display: none;
-}
-
